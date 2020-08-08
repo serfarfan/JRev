@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comentarios"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="22sp"
+        android:textColor="@color/colorBlack"/>
+
+    <EditText
+        android:id="@+id/edtComments"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:textSize="18sp"
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/textComments"
+        android:layout_below="@+id/textComments"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_below="@+id/edtComments"
+        android:layout_alignRight="@+id/edtComments"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/btn_dialog"
+        android:layout_toEndOf="@id/btnCancel"
+        android:layout_below="@+id/edtComments"
+        android:layout_toStartOf="@id/btnSave"/>
+
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:layout_below="@+id/edtComments"
+        android:layout_alignLeft="@id/edtComments"/>
+
+
+</RelativeLayout>

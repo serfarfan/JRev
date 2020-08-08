@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:text="Nombre de usuario: "
+            android:width="120dp" />
+
+        <EditText
+            android:id="@+id/edtUserName"
+            android:width="200dp"  />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Clave: "
+            android:width="120dp" />
+        <EditText
+            android:id="@+id/edtPassword"
+            android:password="true"
+            android:width="200dp"  />
+    </TableRow>
+
+    <TableRow>
+        <TextView />
+        <CheckBox android:id="@+id/chkRememberPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recordar clave" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/btnSignIn"
+            android:text="Iniciar sesión" />
+    </TableRow>
+
+</TableLayout>
+
+</LinearLayout>
