@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +19,35 @@ public class MainActivity extends AppCompatActivity {
     private List<Integer> numeros = new ArrayList<>();
     CharSequence[] items = {"Google", "Apple", "Microsoft"};
     boolean[] itemsChecked = new boolean[items.length];
+    //Create progressDialog
+    ProgressDialog dialog;
 
     //****************** MÉTODOS DE INSTANCIA ******************
     public void onClick(View v){
         showDialog(0);
+    }
+
+    //Método encargado de mostrar el Diálogo de progreso
+    public void onClickProgress(View v){
+        ProgressDialog.show(this, "Progreso en curso",
+                "Por favor espere...", true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    //Simular una operación
+                    Thread.sleep(5000);
+                    //Cerrar el diálogo
+                    dialog.dismiss();
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    public void onClickModernProgress(View v){
+        showDialog(1);
     }
 
     //****************** MÉTODOS OVERRIDE ******************
@@ -85,7 +111,30 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                     ).create();
+
+            case 1:
+                dialog = new ProgressDialog(this);
+                dialog.setIcon(R.drawable.ic_launcher_foreground);
+                dialog.setTitle("Descargando archivos...");
+                dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getBaseContext(), "Aceptar cliqueado", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                //Botón para cancelar
+                dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getBaseContext(), "Cancelar cliqueado", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                return dialog;
     }
         return  null;
-}
+ }
 }

@@ -8,8 +8,24 @@
         android:id="@+id/btnSave"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Mostrar Diálogo"
+        android:text="@string/mostrar_dialogo"
         android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/btnShowProgress"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/mostrar_progress_dialog"
+        android:onClick="onClickProgress"
+        />
+
+    <Button
+        android:id="@+id/btnShowModernProgress"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/mostrar_modern_progress"
+        android:onClick="onClickModernProgress"
         />
 
 </LinearLayout>
