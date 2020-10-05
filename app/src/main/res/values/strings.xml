@@ -3,4 +3,6 @@
     <string name="mostrar_dialogo">Mostrar Diálogo</string>
     <string name="mostrar_progress_dialog">Mostrar Diálogo de progreso</string>
     <string name="mostrar_modern_progress">Mostrar Diálogo moderno</string>
+    <string name="second_activity">Esta es la segunda actividad!!</string>
+    <string name="btn_launch_activity">Mostrar 2da Actividad</string>
 </resources>

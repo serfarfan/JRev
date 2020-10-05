@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -50,12 +51,17 @@ public class MainActivity extends AppCompatActivity {
         showDialog(1);
     }
 
+    public void launchActivity(View v){
+        startActivity(new Intent("com.test.jrev.SecondActivity"));
+    }
+
     //****************** MÉTODOS OVERRIDE ******************
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_layout);
+        setContentView(R.layout.launch_activity);
+        dialog = new ProgressDialog(this);
         /*String[] dias = new String[10];
         dias[1] = "lunes";
         dias[2] = "martes";
@@ -137,4 +143,17 @@ public class MainActivity extends AppCompatActivity {
     }
         return  null;
  }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dialog.dismiss();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        dialog.dismiss();
+    }
+
 }
